@@ -1,8 +1,7 @@
 <?php
 public function uploadFile($request,$requestName,$filePath){
        $file = $request->file($requestName);
-       $imageNewName = rand() . '.' . $file->getClientOriginalExtension();
-       $storeFile = $file->move(public_path($filePath),$imageNewName);
+       $storeFile = $file->move(public_path($filePath),$file->getClientOriginalName());
        if ($storeFile) return true;
    }
 ?>
